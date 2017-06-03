@@ -275,7 +275,7 @@ contract CofounditICO is owned{
 	//
 	/* This part is here only for testing and will not be included into final version */
 	//
-	function killContract() onlyOwner{
-		selfdestruct(msg.sender);
-	}
+	//function killContract() onlyOwner{
+	//	selfdestruct(msg.sender);
+	//}
 }

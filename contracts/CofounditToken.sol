@@ -181,11 +181,11 @@ contract CofounditToken is IERC20Token, owned{
 	/* This part is here only for testing and will not be included into final version */
 	//
 
-	function changeICOAddress(address _newAddress) onlyOwner{
-		icoContractAddress = _newAddress;
-	}
+	//function changeICOAddress(address _newAddress) onlyOwner{
+	//	icoContractAddress = _newAddress;
+	//}
 
-	function killContract() onlyOwner{
-		selfdestruct(msg.sender);
-	}
+	//function killContract() onlyOwner{
+	//	selfdestruct(msg.sender);
+	//}
 }
