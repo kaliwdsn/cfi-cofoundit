@@ -75,8 +75,8 @@ contract CofounditICO is owned{
 	function CofounditICO(uint256 _startBlock, uint256 _endBlock, address _multisigAddress) {
 		startBlock = _startBlock;
 		endBlock = _endBlock;
-		minEthToRaise = 2 * 10**18;
-		maxEthToRaise = 5 * 10**18;
+		minEthToRaise = 56565 * 10**18;
+		maxEthToRaise = 4525 * 10**18;
 		multisigAddress = _multisigAddress;
 
 		icoSupply =	 				125000000 * 10**18;
