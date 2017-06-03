@@ -1,21 +1,21 @@
 pragma solidity ^0.4.8;
 
 contract owned {
-    
-    address public owner;
 
-    function owned() {
-        owner = msg.sender;
-    }
+	address public owner;
 
-    modifier onlyOwner {
-        if (msg.sender != owner) throw;
-        _;
-    }
+	function owned() {
+		owner = msg.sender;
+	}
 
-    function transferOwnership(address newOwner) onlyOwner {
-        owner = newOwner;
-    }
+	modifier onlyOwner {
+		if (msg.sender != owner) throw;
+		_;
+	}
+
+	function transferOwnership(address newOwner) onlyOwner {
+		owner = newOwner;
+	}
 }
 
 contract tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData); }
@@ -28,17 +28,17 @@ contract ICofounditToken {
 contract CofounditICO is owned{
 
 	uint256 public startBlock;
-    uint256 public endBlock;                                     
-    uint256 public minEthToRaise;                                  
-    uint256 public maxEthToRaise;                                  
-    uint256 public totalEthRaised;     
-    address public multisigAddress;
+	uint256 public endBlock;
+	uint256 public minEthToRaise;
+	uint256 public maxEthToRaise;
+	uint256 public totalEthRaised;
+	address public multisigAddress;
 
-    uint256 public icoSupply;
-    uint256 public strategicReserveSupply; 
-    uint256 public cashilaTokenSupply;  
-    uint256 public iconomiTokenSupply;  
-    uint256 public coreTeamTokenSupply;                          
+	uint256 public icoSupply;
+	uint256 public strategicReserveSupply;
+	uint256 public cashilaTokenSupply;
+	uint256 public iconomiTokenSupply;
+	uint256 public coreTeamTokenSupply;
 
 	ICofounditToken cofounditTokenContract;	
 	mapping (address => bool) presaleContributorAllowance;
@@ -47,14 +47,14 @@ contract CofounditICO is owned{
 	mapping (address => uint256) participantContribution;
 
 	uint256 usedIcoSupply;
-    uint256 usedStrategicReserveSupply; 
-    uint256 usedCashilaTokenSupply;  
-    uint256 usedIconomiTokenSupply;  
-    uint256 usedCoreTeamTokenSupply; 
+	uint256 usedStrategicReserveSupply;
+	uint256 usedCashilaTokenSupply;
+	uint256 usedIconomiTokenSupply;
+	uint256 usedCoreTeamTokenSupply;
 
-    bool icoHasStarted;
-    bool minTresholdReached;
-    bool icoHasSucessfulyEnded;
+	bool icoHasStarted;
+	bool minTresholdReached;
+	bool icoHasSucessfulyEnded;
 
 	uint256 lastEthReturnIndex;
 	mapping (address => bool) hasClaimedEthWhenFail;
@@ -276,6 +276,6 @@ contract CofounditICO is owned{
 	/* This part is here only for testing and will not be included into final version */
 	//
 	function killContract() onlyOwner{
-        selfdestruct(msg.sender);
-    }
+		selfdestruct(msg.sender);
+	}
 }

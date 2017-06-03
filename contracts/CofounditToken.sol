@@ -1,21 +1,21 @@
 pragma solidity ^0.4.8;
 
 contract owned {
-    
-    address public owner;
 
-    function owned() {
-        owner = msg.sender;
-    }
+	address public owner;
 
-    modifier onlyOwner {
-        if (msg.sender != owner) throw;
-        _;
-    }
+	function owned() {
+		owner = msg.sender;
+	}
 
-    function transferOwnership(address newOwner) onlyOwner {
-        owner = newOwner;
-    }
+	modifier onlyOwner {
+		if (msg.sender != owner) throw;
+		_;
+	}
+
+	function transferOwnership(address newOwner) onlyOwner {
+		owner = newOwner;
+	}
 }
 
 contract tokenRecipient { 
@@ -164,12 +164,12 @@ contract CofounditToken is IERC20Token, owned{
 	
 	/* Owner can add new restricted address or removes one */
 	function editRestrictedAddress(address _newRestrictedAddress) onlyOwner {
-	    restrictedAddresses[_newRestrictedAddress] = !restrictedAddresses[_newRestrictedAddress];
+		restrictedAddresses[_newRestrictedAddress] = !restrictedAddresses[_newRestrictedAddress];
 	}
 
-    function isRestrictedAddress(address _querryAddress) constant returns (bool answer){
-        return restrictedAddresses[_querryAddress];
-    }
+	function isRestrictedAddress(address _querryAddress) constant returns (bool answer){
+		return restrictedAddresses[_querryAddress];
+	}
 
 	/* This unnamed function is called whenever someone tries to send ether to it */     
 
@@ -186,6 +186,6 @@ contract CofounditToken is IERC20Token, owned{
 	}
 
 	function killContract() onlyOwner{
-        selfdestruct(msg.sender);
-    }
+		selfdestruct(msg.sender);
+	}
 }
